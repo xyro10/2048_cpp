@@ -61,7 +61,7 @@ int main()
 }
 
 
-
+// رسم محیط بازی
 void jadval(int game[4][4]) {    
     for (int i = 0; i < 4; i++)
     {
@@ -83,6 +83,8 @@ void jadval(int game[4][4]) {
     }
 }
 
+// گرفتن حرکت از کاربر
+// 1: left, 2: right, 3: up, 4: down
 char move()
 {
     char move = '0';
@@ -95,6 +97,7 @@ char move()
     return move;
 }
 
+// حرکت به چپ   
 void moveLeft(int game[4][4])
 {
     for (int i = 0; i < 4; i++)
@@ -137,6 +140,7 @@ void moveLeft(int game[4][4])
     }
 }
 
+// حرکت به راست
 void moveRight(int game[4][4])
 {
     for (int i = 0; i < 4; i++)
@@ -179,6 +183,7 @@ void moveRight(int game[4][4])
     }
 }
 
+// حرکت به بالا
 void moveUp(int game[4][4])
 {
     for (int j = 0; j < 4; j++)
@@ -221,6 +226,7 @@ void moveUp(int game[4][4])
     }
 }
 
+// حرکت به پایین
 void moveDown(int game[4][4])
 {
     for (int j = 0; j < 4; j++)
@@ -263,6 +269,7 @@ void moveDown(int game[4][4])
     }
 }
 
+// قرار دادن دو عدد تصادفی 2 یا 4 در خانه های خالی در ابتدا
 void randFirstNum(int game[4][4])
 {
     int emptyplace[16][2] = {}, empty = 0;
@@ -292,6 +299,7 @@ void randFirstNum(int game[4][4])
     }
 }
 
+// قرار دادن یک عدد تصادفی 2 یا 4 در خانه های خالی بعد از هر حرکت
 void randContinueNum(int game[4][4])
 {
     int emptyplace[16][2] = {};
@@ -317,6 +325,7 @@ void randContinueNum(int game[4][4])
     }
 }
 
+// بررسی برد یا باخت
 bool isWinLose(int game[4][4])
 {
     bool full = true;
