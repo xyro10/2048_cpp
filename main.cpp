@@ -215,3 +215,32 @@ void moveDown(int game[4][4])
         }
     }
 }
+
+void randFirstNum(int game[4][4])
+{
+    int emptyplace[16][2] = {}, empty = 0;
+
+    for (int i = 0; i < 4; i++)
+    {
+        for (int j = 0; j < 4; j++)
+        {
+            if (game[i][j] == 0)
+            {
+                emptyplace[empty][0] = i;
+                emptyplace[empty][1] = j;
+                empty++;
+            }
+        }
+    }
+
+    for (int count = 0; count < 2; count++)
+    {
+        int random = rand() % empty;
+        int radif = emptyplace[random][0];
+        int suton = emptyplace[random][1];
+        game[radif][suton] = (rand() % 25 == 0) ? 4 : 2;
+        emptyplace[random][0] = emptyplace[empty - 1][0];
+        emptyplace[random][1] = emptyplace[empty - 1][1];
+        empty--;
+    }
+}
