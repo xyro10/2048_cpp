@@ -47,3 +47,171 @@ char move()
     } while (move != '1' && move != '2' && move != '3' && move != '4');
     return move;
 }
+
+void moveLeft(int game[4][4])
+{
+    for (int i = 0; i < 4; i++)
+    {
+        int position = 0;
+        for (int j = 0; j < 4; j++)
+        {
+            if (game[i][j] != 0)
+            {
+                game[i][position] = game[i][j];
+                if (position != j)
+                {
+                    game[i][j] = 0;
+                }
+                position++;
+            }
+        }
+        for (int j = 0; j < 3; j++)
+        {
+            if (game[i][j] == game[i][j + 1] && game[i][j] != 0)
+            {
+                game[i][j] *= 2;
+                game[i][j + 1] = 0;
+                j++;
+            }
+        }
+        position = 0;
+        for (int j = 0; j < 4; j++)
+        {
+            if (game[i][j] != 0)
+            {
+                game[i][position] = game[i][j];
+                if (position != j)
+                {
+                    game[i][j] = 0;
+                }
+                position++;
+            }
+        }
+    }
+}
+
+void moveRight(int game[4][4])
+{
+    for (int i = 0; i < 4; i++)
+    {
+        int position = 3;
+        for (int j = 3; j >= 0; j--)
+        {
+            if (game[i][j] != 0)
+            {
+                game[i][position] = game[i][j];
+                if (position != j)
+                {
+                    game[i][j] = 0;
+                }
+                position--;
+            }
+        }
+        for (int j = 3; j > 0; j--)
+        {
+            if (game[i][j] == game[i][j - 1] && game[i][j] != 0)
+            {
+                game[i][j] *= 2;
+                game[i][j - 1] = 0;
+                j--;
+            }
+        }
+        position = 3;
+        for (int j = 3; j >= 0; j--)
+        {
+            if (game[i][j] != 0)
+            {
+                game[i][position] = game[i][j];
+                if (position != j)
+                {
+                    game[i][j] = 0;
+                }
+                position--;
+            }
+        }
+    }
+}
+
+void moveUp(int game[4][4])
+{
+    for (int j = 0; j < 4; j++)
+    {
+        int position = 0;
+        for (int i = 0; i < 4; i++)
+        {
+            if (game[i][j] != 0)
+            {
+                game[position][j] = game[i][j];
+                if (position != i)
+                {
+                    game[i][j] = 0;
+                }
+                position++;
+            }
+        }
+        for (int i = 0; i < 3; i++)
+        {
+            if (game[i][j] == game[i + 1][j] && game[i][j] != 0)
+            {
+                game[i][j] *= 2;
+                game[i + 1][j] = 0;
+                i++;
+            }
+        }
+        position = 0;
+        for (int i = 0; i < 4; i++)
+        {
+            if (game[i][j] != 0)
+            {
+                game[position][j] = game[i][j];
+                if (position != i)
+                {
+                    game[i][j] = 0;
+                }
+                position++;
+            }
+        }
+    }
+}
+
+void moveDown(int game[4][4])
+{
+    for (int j = 0; j < 4; j++)
+    {
+        int position = 3;
+        for (int i = 3; i >= 0; i--)
+        {
+            if (game[i][j] != 0)
+            {
+                game[position][j] = game[i][j];
+                if (position != i)
+                {
+                    game[i][j] = 0;
+                }
+                position--;
+            }
+        }
+        for (int i = 3; i > 0; i--)
+        {
+            if (game[i][j] == game[i - 1][j] && game[i][j] != 0)
+            {
+                game[i][j] *= 2;
+                game[i - 1][j] = 0;
+                i--;
+            }
+        }
+        position = 3;
+        for (int i = 3; i >= 0; i--)
+        {
+            if (game[i][j] != 0)
+            {
+                game[position][j] = game[i][j];
+                if (position != i)
+                {
+                    game[i][j] = 0;
+                }
+                position--;
+            }
+        }
+    }
+}
