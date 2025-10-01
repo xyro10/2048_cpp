@@ -12,3 +12,4 @@ void moveUp(int game[4][4]);
 void moveDown(int game[4][4]);
 void randFirstNum(int game[4][4]);
 void randContinueNum(int game[4][4]);
+bool isWinLose(int game[4][4]);
