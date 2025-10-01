@@ -14,6 +14,53 @@ void randFirstNum(int game[4][4]);
 void randContinueNum(int game[4][4]);
 bool isWinLose(int game[4][4]);
 
+int main()
+{
+    int game[4][4] = {};
+    char inputmove = '0';
+    bool isEnd = false;
+    srand(time(0));
+    randFirstNum(game);
+    while (!isEnd)
+    {
+        system("cls");
+        jadval(game);
+        cout << endl << "Enter move (1 for left / 2 for right / 3 for up / 4 for down): ";
+        inputmove = move();
+        switch (inputmove)
+        {
+        case '1': moveLeft(game); 
+            break;
+        case '2': moveRight(game);
+            break;
+        case '3': moveUp(game); 
+            break;
+        case '4': moveDown(game);
+            break;
+        }
+        randContinueNum(game);
+        isEnd = isWinLose(game);
+        if (isEnd)
+        {
+            jadval(game);
+            for (int i = 0; i < 4; i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    if (game[i][j] == 2048)
+                    {
+                        cout << "U Win!" << endl;
+                        return 0;
+                    }
+                }
+            }
+            cout << "U Lost!" << endl;
+        }
+    }
+    return 0;
+}
+
+
 
 void jadval(int game[4][4]) {    
     for (int i = 0; i < 4; i++)
