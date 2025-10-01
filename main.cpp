@@ -5,3 +5,8 @@
 using namespace std;
 
 void jadval(int game[4][4]);
+char move();
+void moveLeft(int game[4][4]);
+void moveRight(int game[4][4]);
+void moveUp(int game[4][4]);
+void moveDown(int game[4][4]);
