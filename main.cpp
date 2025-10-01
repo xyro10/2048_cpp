@@ -35,3 +35,15 @@ void jadval(int game[4][4]) {
         cout << "-" << endl;
     }
 }
+
+char move()
+{
+    char move = '0';
+    do
+    {
+        cin >> move;
+        if (move != '1' && move != '2' && move != '3' && move != '4')
+            cout << "Invalid move!" << endl;
+    } while (move != '1' && move != '2' && move != '3' && move != '4');
+    return move;
+}
