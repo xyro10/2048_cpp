@@ -269,3 +269,48 @@ void randContinueNum(int game[4][4])
         game[radif][suton] = (rand() % 2 + 1) * 2;
     }
 }
+
+bool isWinLose(int game[4][4])
+{
+    bool full = true;
+    bool win = false;
+    for (int i = 0; i < 4; i++)
+    {
+        for (int j = 0; j < 4; j++)
+        {
+            if (game[i][j] == 0)
+            {
+                full = false;
+                break;
+            }
+            if (game[i][j] == 2048)
+            {
+                win = true;
+            }
+        }
+        if (!full)
+        {
+            break;
+        }
+    }
+    if (win)
+    {
+        return true;
+    }
+
+    if (full)
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            for (int j = 0; j < 4; j++)
+            {
+                if (i < 3 && game[i][j] == game[i + 1][j])
+                    return false;
+                if (j < 3 && game[i][j] == game[i][j + 1])
+                    return false;
+            }
+        }
+        return true;
+    }
+    return false;
+}
