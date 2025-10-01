@@ -244,3 +244,28 @@ void randFirstNum(int game[4][4])
         empty--;
     }
 }
+
+void randContinueNum(int game[4][4])
+{
+    int emptyplace[16][2] = {};
+    int empty = 0;
+    for (int i = 0; i < 4; i++)
+    {
+        for (int j = 0; j < 4; j++)
+        {
+            if (game[i][j] == 0)
+            {
+                emptyplace[empty][0] = i;
+                emptyplace[empty][1] = j;
+                empty++;
+            }
+        }
+    }
+    if (empty > 0)
+    {
+        int random = rand() % empty;
+        int radif = emptyplace[random][0];
+        int suton = emptyplace[random][1];
+        game[radif][suton] = (rand() % 2 + 1) * 2;
+    }
+}
